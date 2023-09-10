@@ -1,24 +1,49 @@
 # vue_test
 
-## Project setup
-```
-npm install
+## 脚手架文件结构：
+
+```javascript
+node_modules
+public 
+	favicon.ico:页签图标
+	index.html：主页面
+src
+	assets：存放静态资源
+		logo.png
+	component：存放组件
+		HelloWorld.vue
+	App.vue：汇总所有组件
+	main.js：入口文件
+.gitignore：git版本控制忽略的配置
+babel.config.js：babel的配置文件
+package.json：应用包配置文件
+README.md：应用描述文件
+package-lock.json：包版本控制文件
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 关于不同版本的Vue：
 
-### Compiles and minifies for production
-```
-npm run build
-```
+* vue.js与vue.runtime.xxx.js的区别:
 
-### Lints and fixes files
-```
-npm run lint
-```
+     (1) vue.js 是完整版的Vue,包含:核心功能+模板解析器
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+     (2) vue.runtime.xxx.js是运行版的Vue,只包含:核心功能;没有模板解析器
+
+* 因为vue.runtime.js没有模板解析器,所以不能使用template配置项,需要使用
+
+  render函数接收到的createElement函数去指定具体内容。
+
+## Vue.config.js配置文件
+
+> 使用vue inspect > output.js 可以查看Vue脚手架的默认配置
+
+> 使用vue.config.js可以对脚手架进行个性化定制
+
+https://cli.vuejs.org/zh
+
+## ref属性
+	1.被用来给元素或子组件注册引用信息(document.getElementById的代替者)
+	2.应用在html标签上获取的是真实DOM元素,应用在组件标签上是组件实例对象(vc)
+	3.使用方式:
+		打标识:<h1 ref="xxx">......</h1> 或者 <SchoolVue ref="xxx"></SchoolVue>
+		获取:this.$refs.xxx
