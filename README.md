@@ -47,3 +47,15 @@ https://cli.vuejs.org/zh
 	3.使用方式:
 		打标识:<h1 ref="xxx">......</h1> 或者 <SchoolVue ref="xxx"></SchoolVue>
 		获取:this.$refs.xxx
+## mixin(混入)
+	功能：可以把多个组件共用的配置提取成一个混入的对象
+	使用方式：
+		第一步：定义混合，例如	：
+			{
+				data(){...},
+				methods:{...},
+				...
+			}
+		第二步：使用混合，例如：
+			(1)全局混入：Vue.mixin(xxx)
+			(2)局部混入：mixin:['xxx']
