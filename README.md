@@ -98,3 +98,8 @@ https://cli.vuejs.org/zh
         Vue.prototype.hello=()=>{alert("你好啊")}
 		}
 	使用插件：Vue.use(插件名)
+
+## scoped样式
+    作用：让样式局部生效，防止冲突
+    写法：<style scoped>
+          </style>
