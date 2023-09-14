@@ -24,11 +24,13 @@ export default {
     },
     data() {
         return {
-            todos: [
-                { id: "001", title: "Vue", done: false },
-                { id: "002", title: "Java", done: false },
-                { id: "003", title: "maven", done: true }
-            ]
+            // todos: [
+            //     { id: "001", title: "Vue", done: false },
+            //     { id: "002", title: "Java", done: false },
+            //     { id: "003", title: "maven", done: true }
+            // ]
+            todos:JSON.parse(localStorage.getItem('todos')) || [] // 加|| [] 是防止Footer报错
+
         }
     },
     methods: {
@@ -59,6 +61,14 @@ export default {
             this.todos = this.todos.filter((todo)=>{
                 return !todo.done
             })
+        }
+    },
+    watch:{
+        todos:{
+            deep:true,
+            handler(value){
+                localStorage.setItem('todos',JSON.stringify(value))
+            }
         }
     }
 }
